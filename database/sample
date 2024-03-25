@@ -1,0 +1,109 @@
+CREATE TABLE Department (
+    departmentID SERIAL PRIMARY KEY,
+    department_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE College (
+    collegeID SERIAL PRIMARY KEY,
+    college_name VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE Faculty (
+    facultyID SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    collegeID INT REFERENCES College(collegeID) NOT NULL,
+    dean BOOLEAN,
+    departmentID INT REFERENCES Department(departmentID) NOT NULL,
+    status VARCHAR(255),
+    rank VARCHAR(255),
+    email VARCHAR(255),
+    google_scholar_link VARCHAR(255),
+    specialization VARCHAR(255),
+    research VARCHAR(255),
+    photo VARCHAR(255)
+);
+
+
+CREATE TABLE Additional_load (
+    so_mo SERIAL PRIMARY KEY,
+    facultyID INT REFERENCES Faculty(facultyID),
+    title VARCHAR(255) ,
+    kind VARCHAR(255),
+    equivalent_load INT,
+    duration_from TIMESTAMP,
+    duration_to TIMESTAMP
+);
+
+INSERT INTO College (college_name) VALUES ('College of Engineering');
+INSERT INTO College (college_name) VALUES ('College of Agriculture');
+INSERT INTO College (college_name) VALUES ('College of Social Sciences and Humanities');
+INSERT INTO College (college_name) VALUES ('College of Medicine');
+INSERT INTO College (college_name) VALUES ('College of Business Administration and Accountacy');
+INSERT INTO College (college_name) VALUES ('College of Fisheries');
+INSERT INTO College (college_name) VALUES ('College of Natural Science and Mathematics');
+INSERT INTO College (college_name) VALUES ('School of Graduate Studies');
+INSERT INTO College (college_name) VALUES ('College of Education');
+
+
+INSERT INTO Department (department_name) VALUES ('Department of Elementary Education');
+INSERT INTO Department (department_name) VALUES ('Department of Secondary Education');
+INSERT INTO Department (department_name) VALUES ('Department of Physical Education');
+INSERT INTO Department (department_name) VALUES ('Department of Filipino');
+INSERT INTO Department (department_name) VALUES ('Department of Sociology');
+INSERT INTO Department (department_name) VALUES ('Pre-University/College Bound Program');
+INSERT INTO Department (department_name) VALUES ('Department of English');
+INSERT INTO Department (department_name) VALUES ('Department of Political Science');
+INSERT INTO Department (department_name) VALUES ('Department of Islamic Studies');
+INSERT INTO Department (department_name) VALUES ('Department of History Department');
+INSERT INTO Department (department_name) VALUES ('Department of Mathematics');
+INSERT INTO Department (department_name) VALUES ('Department of Info. Tech & Physics');
+INSERT INTO Department (department_name) VALUES ('Department of Science');
+INSERT INTO Department (department_name) VALUES ('Doctor of Medicine');
+INSERT INTO Department (department_name) VALUES ('Basic Sciences');
+INSERT INTO Department (department_name) VALUES ('Clinical Sciences');
+INSERT INTO Department (department_name) VALUES ('Master in Business Administration');
+INSERT INTO Department (department_name) VALUES ('Master in Public Administration');
+INSERT INTO Department (department_name) VALUES ('Graduate Program in Education');
+INSERT INTO Department (department_name) VALUES ('Master in Sustainable Development');
+INSERT INTO Department (department_name) VALUES ('Department of Accountancy');
+INSERT INTO Department (department_name) VALUES ('Economics, Management & Marketing');
+INSERT INTO Department (department_name) VALUES ('Department of Agricultural Engineering');
+INSERT INTO Department (department_name) VALUES ('Animal Science & Agri Business');
+INSERT INTO Department (department_name) VALUES ('Agronomy');
+INSERT INTO Department (department_name) VALUES ('Department of Civil Engineering');
+INSERT INTO Department (department_name) VALUES ('Electronics & Com. Engineering/Electrical Engineering ');
+INSERT INTO Department (department_name) VALUES ('Department of Mechanical Engineering');
+INSERT INTO Department (department_name) VALUES ('Engineering Technology');
+INSERT INTO Department (department_name) VALUES ('Department of Aquaculture');
+INSERT INTO Department (department_name) VALUES ('Fish Processing & Marine Biology');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+DELETE FROM Additional_load WHERE so_mo BETWEEN 6 AND 13;
+DELETE FROM Faculty WHERE facultyID BETWEEN 6 AND 13;
+
+DELETE FROM Additional_load WHERE so_mo = 15;
+DELETE FROM Faculty WHERE facultyID = 15;
+DELETE FROM department WHERE departmentid BETWEEN 101 AND 345;
+
+
+CREATE DOMAIN status_domain
+    AS VARCHAR(255)
+    CONSTRAINT valid_status CHECK (VALUE IN ('Active', 'Inactive', 'On Leave', 'Retired'));
+
+CREATE DOMAIN rank_domain
+    AS VARCHAR(255)
+    CONSTRAINT valid_rank CHECK (VALUE IN (
+    'LECT', 'PROF1' , 'PROF2', 'PROF3', 'PROF4', 'PROF5', 'PROF6',
+    'INST1', 'INST2', 'INST3',
+    'ASOPRO1', 'ASOPRO2', 'ASOPRO3','ASOPRO4','ASOPRO5',
+    'ASTPRO1', 'ASTPRO3', 'ASTPRO4',
+    'MTEACH2', 
+    'TEACH1','TEACH2', 'TEACH3'
+    ));
+
+psql -h localhost -p 5432 -U postgres
+\l
+\dt 
+\c
+\copy (SELECT name FROM Faculty WHERE photo IS NULL) TO '/var/www/html/facultydirectory/name.csv' WITH CSV HEADER
