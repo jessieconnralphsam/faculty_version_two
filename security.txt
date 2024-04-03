@@ -1,4 +1,0 @@
-- User inputs (such as $totalFacultyCount and $facultyData) are sanitized using htmlspecialchars() to prevent XSS vulnerabilities.
-- Database query results ($facultyData) are encoded using json_encode() to prevent SQL injection.
-- File paths (faculty.photo) are properly encoded using encodeURIComponent() to prevent directory traversal attacks.
-- The getDeanText() function is used to retrieve the dean text based on the college name, reducing code duplication and enhancing readability.
