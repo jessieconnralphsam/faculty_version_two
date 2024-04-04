@@ -91,7 +91,7 @@
                 <div class="row">
                       <div class="col py-2">
                           <div class="container py-2 bg-white rounded custom-container border">
-                            <img src="forms/assets/img/65dbdd2cc61cb_ACAPULCO, JUNIVEN P _MG_9332.jpg" class="rounded img-fluid" alt="...">
+                            <img src="forms/assets/img/65dbea9321a51_DELA CRUZ, MARISSA G _MG_9407.jpg" class="rounded img-fluid" alt="...">
                             <h6 class="text-center mt-2 maroon"><strong>College of Business Administration and Accountancy</strong></h6>
                             <div class="container" style="display: flex; justify-content: center;">
                                 <div style="width: 30%;">
