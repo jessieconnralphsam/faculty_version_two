@@ -13,9 +13,12 @@
   </div>
   <div class="container">
       <?php include('includes/search.php'); ?>
-      <?php include('includes/chart.php'); ?>
+      <!-- <?php include('includes/chart.php'); ?> -->
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
+            <div class="px-3 py-3 bg-white">
+              <strong>All Colleges / <span class="maroon">College of Natural Sciences and Mathematics (CNSM)</span></strong>
+            </div>
             <div class="px-3 py-3">
               <strong>All Colleges (10)</strong>
               <div class="py-4">

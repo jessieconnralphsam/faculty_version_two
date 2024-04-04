@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<!-- <div class="container mt-3">
         <div class="row row-cols-auto">
           <div class="col px-2 py-2">
             <div  class="container bg-white rounded">
@@ -31,4 +31,4 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
