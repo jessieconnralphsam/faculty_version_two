@@ -109,15 +109,7 @@
       </div>
   </div>
   <div style="margin-bottom: 2rem;"></div>
-  <footer>
-      <div class="footer-bg">
-        <div class="footer-container">
-          <div class="container-foot d-flex justify-content-center">
-            <p class="color-white text-center mt-3">Copyright © 2024. All Rights Reserved.</p>
-          </div>
-        </div>
-      </div>
-  </footer>
+  <?php include('includes/footer.php'); ?>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center mb-5"><i class="bi bi-arrow-up-short"></i></a>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
