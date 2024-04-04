@@ -12,74 +12,8 @@
     </div>
   </div>
   <div class="container">
-      <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search name" aria-label="Recipient's username" aria-describedby="">
-                    <button class="btn maroon-button" type="button" id=""><i class="fa fa-search color-white"></i></button>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="row mt-2">
-                            <div class="col">
-                                <strong>Show Status</strong>
-                            </div>
-                            <div class="col-2">
-                                <input class="form-check-input" type="checkbox" value="" aria-label="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col text-center">
-                        <div class="row mt-2">
-                            <div class="col">
-                                <strong>Show Rank</strong>
-                            </div>
-                            <div class="col col-2">
-                                <input class="form-check-input" type="checkbox" value="" aria-label="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <!-- <div class="container mt-3">
-        <div class="row row-cols-auto">
-          <div class="col px-2 py-2">
-            <div  class="container bg-white rounded">
-              <div class="container">
-                <div class="row">
-                  <div class="col col-md-10">
-                    <div>
-                      <strong>CNSM Faculty Rank</strong>
-                    </div>
-                  </div>
-                  <div class="col col-md-2">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col px-2 py-2">
-            <div  class="container bg-white rounded">
-              <div class="container">
-                <div class="row">
-                  <div class="col col-md-10">
-                    <div>
-                      <strong>CNSM Faculty Rank</strong>
-                    </div>
-                  </div>
-                  <div class="col col-md-2">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      <?php include('includes/search.php'); ?>
+      <!-- <?php include('includes/chart.php'); ?> -->
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <!-- <div class="px-3 py-3 bg-white">
