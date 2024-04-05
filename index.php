@@ -1,3 +1,4 @@
+<?php include('connection/db_connection.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php include('includes/header.php'); ?>
