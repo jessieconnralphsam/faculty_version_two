@@ -53,7 +53,7 @@ if ($result) {
         }
 
         echo '<div class="col py-2">
-                <div class="container py-2 bg-white rounded custom-container border" onclick="redirect()">
+                <div class="container py-2 bg-white rounded custom-container border" onclick="redirect(\'' . $row['college_name'] . '\')">
                   <img src="' . $photoSrc . '" class="rounded img-fluid" alt="...">
                   <h6 class="text-center mt-2 maroon"><strong>' . $row['college_name'] . '</strong></h6>
                   <div class="container" style="display: flex; justify-content: center;">
