@@ -23,10 +23,6 @@
             </div>
             <div class="px-3 py-3">
               <?php include('data/nsm_data.php'); ?>
-              <div class="py-4">
-                <div class="row">
-                </div>
-              </div>
             </div>
         </div>
       </div>
