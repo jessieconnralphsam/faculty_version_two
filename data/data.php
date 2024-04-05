@@ -22,26 +22,29 @@ $sql = "SELECT
 
 $result = pg_query($conn, $sql);
 
-if (!$result) {
-    echo "Query execution failed.";
-} else {
-
+if ($result) {
+    $dean_faculty_names = array();
+    $dean_faculty_info = array();
+    
     while ($row = pg_fetch_assoc($result)) {
-        echo "Faculty Name: " . $row['faculty_name'] . "<br>";
-        echo "College Name: " . $row['college_name'] . "<br>";
-        echo "Department Name: " . $row['department_name'] . "<br>";
-        echo "Email: " . $row['email'] . "<br>";
-        echo "Specialization: " . $row['specialization'] . "<br>";
-        echo "Research: " . $row['research'] . "<br>";
-        echo "Google Scholar Link: " . $row['google_scholar_link'] . "<br>";
-        echo "Rank: " . $row['rank'] . "<br>";
-        echo "Dean: " . $row['dean'] . "<br>";
-        echo "Photo: " . $row['photo'] . "<br>";
-        echo "Status: " . $row['status'] . "<br><br>";
+        if ($row['dean'] === 't') {
+            $dean_faculty_names[] = $row['faculty_name'];
+            $dean_faculty_info[] = array(
+                'faculty_name' => $row['faculty_name'],
+                'college_name' => $row['college_name'],
+                'photo' => $row['photo']
+            );
+        }
     }
+
+    foreach ($dean_faculty_info as $info) {
+        echo "Name: " . $info['faculty_name'] . ", College: " . $info['college_name'] . ", Photo: " . $info['photo'] . "<br>";
+    }
+} else {
+    echo "Error executing query: " . pg_last_error($conn);
 }
 
-// Close the connection
-pg_close($conn);
 
+
+pg_close($conn);
 ?>

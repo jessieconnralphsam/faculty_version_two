@@ -22,6 +22,6 @@ if (!$result) {
 // Count the number of rows returned
 $num_rows = pg_num_rows($result);
 
-pg_close($conn);
+
 
 ?>
