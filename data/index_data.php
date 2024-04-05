@@ -14,6 +14,12 @@ $result = pg_query($conn, $sql);
 
 if ($result) {
     while ($row = pg_fetch_assoc($result)) {
+        if ($row['photo'] == null) {
+            $photoSrc = 'assets/img/660f6e5997de4_def.jpg';
+        } else {
+            $photoSrc = 'forms/' . $row['photo'];
+        }
+
         switch ($row['college_name']) {
             case 'College of Agriculture':
                 $deanText = 'Dean of COA';
@@ -48,7 +54,7 @@ if ($result) {
 
         echo '<div class="col py-2">
                 <div class="container py-2 bg-white rounded custom-container border">
-                  <img src="forms/' . $row['photo'] . '" class="rounded img-fluid" alt="...">
+                  <img src="' . $photoSrc . '" class="rounded img-fluid" alt="...">
                   <h6 class="text-center mt-2 maroon"><strong>' . $row['college_name'] . '</strong></h6>
                   <div class="container" style="display: flex; justify-content: center;">
                       <div style="width: 30%;">
