@@ -1,3 +1,5 @@
+<?php include('connection/db_connection.php'); ?>
+<?php include('data/dean_count.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php include('includes/header.php'); ?>
@@ -13,28 +15,16 @@
   </div>
   <div class="container">
       <?php include('includes/search.php'); ?>
+      <?php include('includes/chart.php'); ?>
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <div class="px-3 py-3 bg-white">
               <strong>All Colleges / <span class="maroon">College of Natural Sciences and Mathematics (CNSM)</span></strong>
             </div>
             <div class="px-3 py-3">
-              <strong>All Colleges (10)</strong>
+              <?php include('data/nsm_data.php'); ?>
               <div class="py-4">
                 <div class="row">
-                      <div class="col py-2">
-                          <div class="container py-2 bg-white rounded custom-container border">
-                            <img src="forms/assets/img/65dbea9321a51_DELA CRUZ, MARISSA G _MG_9407.jpg" class="rounded img-fluid" alt="...">
-                            <h6 class="text-center mt-2 maroon"><strong>College of Business Administration and Accountancy</strong></h6>
-                            <div class="container" style="display: flex; justify-content: center;">
-                                <div style="width: 30%;">
-                                    <hr style="width: 100%; border: 1px solid;">
-                                </div>
-                            </div>
-                            <h6 class="text-center"><strong>Marissa G. Dela Cruz</strong></h6>
-                            <h6 class="text-center">Dean of CBA&A</h6>
-                          </div>
-                      </div>
                 </div>
               </div>
             </div>
@@ -47,6 +37,6 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/chart.js"></script>
+  <script src="assets/js/page.js"></script>
 </body>
 </html>
