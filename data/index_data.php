@@ -34,7 +34,7 @@ if ($result) {
                 $deanText = 'Dean of COM';
                 break;
             case 'College of Business Administration and Accountacy':
-                $deanText = 'Dean of BA&A';
+                $deanText = 'Dean of Ba&A';
                 break;
             case 'College of Fisheries':
                 $deanText = 'Dean of COF';
