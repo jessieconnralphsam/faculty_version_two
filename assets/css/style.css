@@ -226,6 +226,7 @@ h6 {
 .custom-container{
   width: 240px;
   height: 450px;
+  cursor: pointer;
 }
 /*--------------------------------------------------------------
 # Header

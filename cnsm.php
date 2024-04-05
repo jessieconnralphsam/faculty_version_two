@@ -13,7 +13,6 @@
   </div>
   <div class="container">
       <?php include('includes/search.php'); ?>
-      <!-- <?php include('includes/chart.php'); ?> -->
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <div class="px-3 py-3 bg-white">

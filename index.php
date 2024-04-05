@@ -35,5 +35,6 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/page.js"></script>
 </body>
 </html>
