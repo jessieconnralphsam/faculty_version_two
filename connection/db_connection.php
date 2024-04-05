@@ -14,5 +14,4 @@ if (!$conn) {
 
 // echo "Connected successfully";
 
-pg_close($conn);
 ?>
