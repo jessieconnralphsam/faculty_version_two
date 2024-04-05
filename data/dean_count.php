@@ -1,7 +1,5 @@
 <?php
 
-include('../connection/db_connection.php');
-
 // Check connection is validity
 if (pg_connection_status($conn) !== PGSQL_CONNECTION_OK) {
     die("Connection error: " . pg_last_error($conn));
@@ -23,8 +21,6 @@ if (!$result) {
 
 // Count the number of rows returned
 $num_rows = pg_num_rows($result);
-
-echo "Number of rows returned: " . $num_rows . "<br>";
 
 pg_close($conn);
 

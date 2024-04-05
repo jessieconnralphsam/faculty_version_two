@@ -1,4 +1,5 @@
 <?php include('connection/db_connection.php'); ?>
+<?php include('data/dean_count.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php include('includes/header.php'); ?>
@@ -18,7 +19,7 @@
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <div class="px-3 py-3">
-              <strong>All Colleges (10)</strong>
+              <strong>All Colleges (<?php echo $num_rows; ?>)</strong>
               <div class="py-4">
                 <div class="row">
                       <div class="col py-2">
