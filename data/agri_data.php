@@ -44,7 +44,7 @@ if ($result) {
 
                 echo '
                     <div class="col py-2">
-                        <div class="container py-2 bg-white rounded custom-container border" onclick="redirect(\'' . $departmentName . '\')">
+                        <div class="container py-2 bg-white rounded custom-container border">
                             <img src="' . $photoSrc . '" class="rounded img-fluid" alt="...">
                             <h6 class="text-center mt-2 maroon"><strong>' . $departmentName . '</strong></h6>
                             <div class="container" style="display: flex; justify-content: center;">
