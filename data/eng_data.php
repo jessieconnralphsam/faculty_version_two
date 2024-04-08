@@ -42,11 +42,13 @@ if ($result) {
                 $facultyName = $facultyRow['faculty_name'];
                 $photoSrc = ($facultyRow['photo'] == null) ? 'assets/img/660f6e5997de4_def.jpg' : 'forms/' . $facultyRow['photo'];
 
+                $facultyId = 'faculty_' . uniqid();
+
                 echo '
                     <div class="col py-2">
-                        <div class="container py-2 bg-white rounded custom-container border" onclick="redirect(\'' . $departmentName . '\')">
+                        <div id="' . $facultyId . '" class="container py-2 bg-white rounded custom-container border" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
                             <img src="' . $photoSrc . '" class="rounded img-fluid" alt="...">
-                            <h6 class="text-center mt-2 maroon"><strong>' . $departmentName . '</strong></h6>
+                            <h6 id="' . $facultyId . '_name" class="text-center mt-2 maroon"><strong>' . $departmentName . '</strong></h6>
                             <div class="container" style="display: flex; justify-content: center;">
                                 <div style="width: 30%;">
                                     <hr style="width: 100%; border: 1px solid;">
@@ -69,3 +71,38 @@ if ($result) {
     echo "Error executing query: " . pg_last_error($conn);
 }
 ?>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Faculty Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="facultyDetails"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const containers = document.querySelectorAll('.custom-container');
+        containers.forEach(container => {
+            container.addEventListener('click', function () {
+                const facultyName = container.querySelector('h6:last-of-type').innerText;
+                const facultyPhoto = container.querySelector('img').getAttribute('src');
+                const modalFacultyDetails = document.getElementById('facultyDetails');
+                modalFacultyDetails.innerHTML = `
+                    <div>
+                        <div class="container">
+                            <img src="${facultyPhoto}" class="rounded img-fluid" alt="...">
+                        </div>
+                        <h6 class="text-center"><strong>${facultyName}</strong></h6>
+                    </div>`;
+            });
+        });
+    });
+</script>
+
