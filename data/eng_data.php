@@ -32,7 +32,11 @@ if ($result) {
                             F.google_scholar_link,
                             F.specialization,
                             F.research,
-                            F.education
+                            F.education,
+                            F.first_name,
+                            F.last_name,
+                            F.middle_name,
+                            F.suffix
                         FROM
                             public.faculty F
                         JOIN
@@ -47,6 +51,10 @@ if ($result) {
             while ($facultyRow = pg_fetch_assoc($facultyResult)) {
                 $facultyName = $facultyRow['faculty_name'];
                 $rank = $facultyRow['rank'];
+                $first_name = $facultyRow['first_name'];
+                $middle_name = $facultyRow['middle_name'];
+                $last_name = $facultyRow['last_name'];
+                $suffix = $facultyRow['suffix'];
                 $google = $facultyRow['google_scholar_link'];
                 $research = $facultyRow['research'];
                 $specialization = $facultyRow['specialization'];
@@ -58,6 +66,10 @@ if ($result) {
                 echo '
                     <div class="col py-2">
                         <div id="' . $facultyId . '" class="container py-2 bg-white rounded custom-container border" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                            <p id="first_name" style="display: none" class="text-center"><strong>' .  $first_name . '</strong></p>
+                            <p id="middle_name" style="display: none" class="text-center"><strong>' .  $middle_name . '</strong></p>
+                            <p id="last_name" style="display: none" class="text-center"><strong>' .  $last_name . '</strong></p>
+                            <p id="suffix" style="display: none" class="text-center"><strong>' .  $suffix . '</strong></p>
                             <p id="rank" style="display: none" class="text-center"><strong>' .  $rank . '</strong></p>
                             <p id="department" style="display: none" class="text-center"><strong>' .  $departmentName . '</strong></p>
                             <p id="google" style="display: none" class="text-center"><strong>' .  $google . '</strong></p>
@@ -109,6 +121,10 @@ if ($result) {
         containers.forEach(container => {
             container.addEventListener('click', function () {
                 const education = container.querySelector('#education').innerText; 
+                const first_name = container.querySelector('#first_name').innerText; 
+                const middle_name = container.querySelector('#middle_name').innerText;
+                const last_name = container.querySelector('#last_name').innerText; 
+                const suffix = container.querySelector('#suffix').innerText; 
                 const research = container.querySelector('#research').innerText; 
                 const google = container.querySelector('#google').innerText; 
                 const specialization = container.querySelector('#specialization').innerText; 
@@ -122,6 +138,10 @@ if ($result) {
                         <div class="container">
                             <img src="${facultyPhoto}" class="rounded img-fluid" alt="...">
                         </div>
+                        <h6 class="text-center"><strong>${first_name}</strong></h6>
+                        <h6 class="text-center"><strong>${middle_name}</strong></h6>
+                        <h6 class="text-center"><strong>${last_name}</strong></h6>
+                        <h6 class="text-center"><strong>${suffix}</strong></h6>
                         <h6 class="text-center"><strong>${rank}</strong></h6>
                         <h6 class="text-center"><strong>${education}</strong></h6>
                         <h6 class="text-center"><strong>${google}</strong></h6>
