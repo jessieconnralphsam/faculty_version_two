@@ -1,19 +1,20 @@
 <?php
 $sql = "SELECT
-            d.department_name,
-            COUNT(f.facultyid) AS faculty_count
+        d.department_name,
+        COUNT(f.facultyid) AS faculty_count
         FROM 
-            public.college c
+        public.college c
         LEFT JOIN 
-            public.faculty f ON c.collegeid = f.collegeid
+        public.faculty f ON c.collegeid = f.collegeid
         LEFT JOIN 
-            public.department d ON f.departmentid = d.departmentid
+        public.department d ON f.departmentid = d.departmentid
         WHERE
-            c.college_name = 'College of Engineering'
+        c.college_name = 'College of Engineering' -- change department to change content
         GROUP BY 
-            d.department_name
+        f.facultyid, d.department_name
         ORDER BY 
-            d.department_name";
+        d.department_name;
+        ;";
 
 $result = pg_query($conn, $sql);
 
@@ -26,7 +27,12 @@ if ($result) {
 
         $facultySql = "SELECT
                             F.name AS faculty_name,
-                            F.photo
+                            F.photo,
+                            F.rank,
+                            F.google_scholar_link,
+                            F.specialization,
+                            F.research,
+                            F.education
                         FROM
                             public.faculty F
                         JOIN
@@ -40,6 +46,11 @@ if ($result) {
             echo '<div class="row">'; 
             while ($facultyRow = pg_fetch_assoc($facultyResult)) {
                 $facultyName = $facultyRow['faculty_name'];
+                $rank = $facultyRow['rank'];
+                $google = $facultyRow['google_scholar_link'];
+                $research = $facultyRow['research'];
+                $specialization = $facultyRow['specialization'];
+                $education = $facultyRow['education'];
                 $photoSrc = ($facultyRow['photo'] == null) ? 'assets/img/660f6e5997de4_def.jpg' : 'forms/' . $facultyRow['photo'];
 
                 $facultyId = 'faculty_' . uniqid();
@@ -47,6 +58,12 @@ if ($result) {
                 echo '
                     <div class="col py-2">
                         <div id="' . $facultyId . '" class="container py-2 bg-white rounded custom-container border" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                            <p id="rank" style="display: none" class="text-center"><strong>' .  $rank . '</strong></p>
+                            <p id="department" style="display: none" class="text-center"><strong>' .  $departmentName . '</strong></p>
+                            <p id="google" style="display: none" class="text-center"><strong>' .  $google . '</strong></p>
+                            <p id="specialization" style="display: none" class="text-center"><strong>' .  $specialization . '</strong></p>
+                            <p id="research" style="display: none" class="text-center"><strong>' .  $research . '</strong></p>
+                            <p id="education" style="display: none" class="text-center"><strong>' .  $education . '</strong></p>
                             <img src="' . $photoSrc . '" class="rounded img-fluid" alt="...">
                             <h6 id="' . $facultyId . '_name" class="text-center mt-2 maroon"><strong>' . $departmentName . '</strong></h6>
                             <div class="container" style="display: flex; justify-content: center;">
@@ -91,6 +108,12 @@ if ($result) {
         const containers = document.querySelectorAll('.custom-container');
         containers.forEach(container => {
             container.addEventListener('click', function () {
+                const education = container.querySelector('#education').innerText; 
+                const research = container.querySelector('#research').innerText; 
+                const google = container.querySelector('#google').innerText; 
+                const specialization = container.querySelector('#specialization').innerText; 
+                const rank = container.querySelector('#rank').innerText; 
+                const department = container.querySelector('#department').innerText;
                 const facultyName = container.querySelector('h6:last-of-type').innerText;
                 const facultyPhoto = container.querySelector('img').getAttribute('src');
                 const modalFacultyDetails = document.getElementById('facultyDetails');
@@ -99,10 +122,18 @@ if ($result) {
                         <div class="container">
                             <img src="${facultyPhoto}" class="rounded img-fluid" alt="...">
                         </div>
+                        <h6 class="text-center"><strong>${rank}</strong></h6>
+                        <h6 class="text-center"><strong>${education}</strong></h6>
+                        <h6 class="text-center"><strong>${google}</strong></h6>
+                        <h6 class="text-center"><strong>${research}</strong></h6>
+                        <h6 class="text-center"><strong>${specialization}</strong></h6>
+                        <h6 class="text-center"><strong>${department}</strong></h6>
+                        <h6 class="text-center">COE</h6>
                         <h6 class="text-center"><strong>${facultyName}</strong></h6>
                     </div>`;
             });
         });
     });
 </script>
+
 
