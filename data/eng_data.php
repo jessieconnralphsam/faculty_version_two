@@ -9,12 +9,11 @@ $sql = "SELECT
         LEFT JOIN 
         public.department d ON f.departmentid = d.departmentid
         WHERE
-        c.college_name = 'College of Engineering' -- change department to change content
+        c.college_name = 'College of Engineering'
         GROUP BY 
-        f.facultyid, d.department_name
+        d.department_name
         ORDER BY 
-        d.department_name;
-        ;";
+        d.department_name";
 
 $result = pg_query($conn, $sql);
 
