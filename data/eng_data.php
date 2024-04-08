@@ -83,7 +83,7 @@ if ($result) {
                                     <hr style="width: 100%; border: 1px solid;">
                                 </div>
                             </div>
-                            <h6 class="text-center"><strong>' . $facultyName . '</strong></h6>
+                            <h6 class="text-center"><strong>' . $last_name . ',' . $first_name . ' ' .$suffix . ' ' . $middle_name . '</strong></h6>
                         </div>
                     </div>';
             }
@@ -102,13 +102,12 @@ if ($result) {
 ?>
 <!-- Modal -->
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalToggleLabel">Faculty Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
+                <div class="position-relative mb-5">
+                    <button type="button" class="btn-close position-absolute end-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>  
                 <p id="facultyDetails"></p>
             </div>
         </div>
@@ -135,21 +134,23 @@ if ($result) {
                 const modalFacultyDetails = document.getElementById('facultyDetails');
                 modalFacultyDetails.innerHTML = `
                     <div>
-                        <div class="container">
-                            <img src="${facultyPhoto}" class="rounded img-fluid" alt="...">
+                        <div class="row">
+                            <div class="col">
+                                <div class="container-fluid">
+                                    <img src="${facultyPhoto}" class="rounded img-fluid" alt="...">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="container w-auto p-3">
+                                    <h3 class="text-center maroon"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
+                                    <h6 class="text-center"><strong>Rank, Department, College</strong></h6>
+                                    <h6 class=""><strong>Highest Educational Attainment:</strong></h6>
+                                    <h6 class=""><strong>Google Scholar Link:</strong></h6>
+                                    <h6 class=""><strong>Specializations:</strong></h6>
+                                    <h6 class=""><strong>Research Interests:</strong></h6>
+                                </div>
+                            </div>
                         </div>
-                        <h6 class="text-center"><strong>${first_name}</strong></h6>
-                        <h6 class="text-center"><strong>${middle_name}</strong></h6>
-                        <h6 class="text-center"><strong>${last_name}</strong></h6>
-                        <h6 class="text-center"><strong>${suffix}</strong></h6>
-                        <h6 class="text-center"><strong>${rank}</strong></h6>
-                        <h6 class="text-center"><strong>${education}</strong></h6>
-                        <h6 class="text-center"><strong>${google}</strong></h6>
-                        <h6 class="text-center"><strong>${research}</strong></h6>
-                        <h6 class="text-center"><strong>${specialization}</strong></h6>
-                        <h6 class="text-center"><strong>${department}</strong></h6>
-                        <h6 class="text-center">COE</h6>
-                        <h6 class="text-center"><strong>${facultyName}</strong></h6>
                     </div>`;
             });
         });

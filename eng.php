@@ -19,7 +19,7 @@
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <div class="px-3 py-3 bg-white">
-              <strong>All Colleges / <span class="maroon">College of Engineering (COE)</span></strong>
+              <strong><a href="index.php">All Colleges</a> / <span class="maroon">College of Engineering (COE)</span></strong>
             </div>
             <div class="px-3 py-3">
               <?php include('data/eng_data.php'); ?>

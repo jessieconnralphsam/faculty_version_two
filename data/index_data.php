@@ -3,7 +3,11 @@
 $sql = "SELECT
     F.name AS faculty_name,
     C.college_name,
-    F.photo
+    F.photo,
+    F.first_name,
+    F.last_name,
+    F.middle_name,
+    F.suffix
 FROM
     Faculty F
 JOIN
@@ -62,6 +66,7 @@ if ($result) {
                       </div>
                   </div>
                   <h6 class="text-center"><strong>' . $row['faculty_name'] . '</strong></h6>
+                  <h6 class="text-center"><strong>' . $row['last_name'] . ',' . $row['first_name'] . ' ' . $row['suffix'] . ' ' . $row['middle_name'] . '</strong></h6>
                   <h6 class="text-center">' . $deanText . '</h6>
                 </div>
             </div>';
