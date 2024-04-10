@@ -49,6 +49,30 @@ if ($result) {
             echo '<div class="py-4">'; 
             echo '<div class="row">'; 
             while ($facultyRow = pg_fetch_assoc($facultyResult)) {
+                $rankMap = array(
+                    "LECT   " => "Lecturer",
+                    "PROF1  " => "Professor",
+                    "PROF2  " => "Professor",
+                    "PROF3  " => "Professor",
+                    "PROF4  " => "Professor",
+                    "PROF5  " => "Professor",
+                    "PROF6  " => "Professor",
+                    "MTEACH2" => "Master Teacher",
+                    "TEACH1 " => "Teacher",
+                    "TEACH2 " => "Teacher",
+                    "TEACH3 " => "Teacher",
+                    "ASTPRO1" => "Assistant Professor",
+                    "ASTPRO3" => "Assistant Professor",
+                    "ASTPRO4" => "Assistant Professor",
+                    "ASOPRO1" => "Associate Professor",
+                    "ASOPRO2" => "Associate Professor",
+                    "ASOPRO3" => "Associate Professor",
+                    "ASOPRO4" => "Associate Professor",
+                    "ASOPRO5" => "Associate Professor",
+                    "INST1  " => "Instructor",
+                    "INST2  " => "Instructor",
+                    "INST3  " => "Instructor"
+                );
                 $facultyName = $facultyRow['faculty_name'];
                 $rank = $facultyRow['rank'];
                 $first_name = $facultyRow['first_name'];
@@ -60,7 +84,7 @@ if ($result) {
                 $specialization = $facultyRow['specialization'];
                 $education = $facultyRow['education'];
                 $photoSrc = ($facultyRow['photo'] == null) ? 'assets/img/660f6e5997de4_def.jpg' : 'forms/' . $facultyRow['photo'];
-
+                $transformedRank = isset($rankMap[$rank]) ? $rankMap[$rank] : $rank;
                 $facultyId = 'faculty_' . uniqid();
 
                 echo '
@@ -84,6 +108,7 @@ if ($result) {
                                 </div>
                             </div>
                             <h6 class="text-center"><strong>' . $last_name . ',' . $first_name . ' ' .$suffix . ' ' . $middle_name . '</strong></h6>
+                            <h6 class="text-center"><strong>' . $transformedRank . '</strong></h6>
                         </div>
                     </div>';
             }
