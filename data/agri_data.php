@@ -16,7 +16,6 @@ $sql = "SELECT
         ORDER BY 
         d.department_name";
 
-
 $result = pg_query($conn, $sql);
 
 if ($result) {
@@ -128,10 +127,37 @@ if ($result) {
                 const research = container.querySelector('#research').innerText; 
                 const google = container.querySelector('#google').innerText; 
                 const specialization = container.querySelector('#specialization').innerText; 
-                const rank = container.querySelector('#rank').innerText; 
+                const rankAbbreviation = container.querySelector('#rank').innerText.trim();
                 const department = container.querySelector('#department').innerText;
                 const facultyName = container.querySelector('h6:last-of-type').innerText;
                 const facultyPhoto = container.querySelector('img').getAttribute('src');
+                
+                const rankMap = {
+                    "LECT": "Lecturer",
+                    "PROF1": "Professor",
+                    "PROF2": "Professor",
+                    "PROF3": "Professor",
+                    "PROF4": "Professor",
+                    "PROF5": "Professor",
+                    "PROF6": "Professor",
+                    "MTEACH2": "Master Teacher",
+                    "TEACH1": "Teacher",
+                    "TEACH2": "Teacher",
+                    "TEACH3": "Teacher",
+                    "ASTPRO1": "Assistant Professor",
+                    "ASTPRO3": "Assistant Professor",
+                    "ASTPRO4": "Assistant Professor",
+                    "ASOPRO1": "Associate Professor",
+                    "ASOPRO2": "Associate Professor",
+                    "ASOPRO3": "Associate Professor",
+                    "ASOPRO4": "Associate Professor",
+                    "ASOPRO5": "Associate Professor",
+                    "INST1": "Instructor",
+                    "INST2": "Instructor",
+                    "INST3": "Instructor"
+                };
+                const rankFullName = rankMap[rankAbbreviation] || rankAbbreviation;
+                
                 const modalFacultyDetails = document.getElementById('facultyDetails');
                 modalFacultyDetails.innerHTML = `
                     <div>
@@ -144,7 +170,7 @@ if ($result) {
                             <div class="col">
                                 <div class="container w-auto p-3">
                                     <h3 class="text-center maroon"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
-                                    <h6 class="text-center"><strong>Rank, Department, College</strong></h6>
+                                    <h6 class="text-center"><strong>${rankFullName}, ${department}, COA</strong></h6>
                                     <h6 class=""><strong>Highest Educational Attainment:</strong></h6>
                                     <h6 class=""><strong>Google Scholar Link:</strong></h6>
                                     <h6 class=""><strong>Specializations:</strong></h6>
@@ -157,5 +183,6 @@ if ($result) {
         });
     });
 </script>
+
 
 

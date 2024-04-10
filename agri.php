@@ -19,7 +19,7 @@
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <div class="px-3 py-3 bg-white">
-              <strong><a href="lindex.php">All Colleges</a> / <span class="maroon">College of Agriculture (COA)</span></strong>
+              <strong><a href="index.php">All Colleges</a> / <span class="maroon">College of Agriculture (COA)</span></strong>
             </div>
             <div class="px-3 py-3">
               <?php include('data/agri_data.php'); ?>
