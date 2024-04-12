@@ -145,7 +145,11 @@ if ($result) {
 
 <script>
     function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        var words = string.split(' ');
+        var capitalizedWords = words.map(function(word) {
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        });
+        return capitalizedWords.join(' ');
     }
 
     document.addEventListener('DOMContentLoaded', function () {
