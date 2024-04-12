@@ -202,7 +202,7 @@ if ($result) {
                 modalFacultyDetails.innerHTML = `
                     <div>
                         <div class="row">
-                            <div class="col custom-column">
+                            <div class="col col-8 col-md-6 custom-column">
                                 <div class="container-fluid">
                                     <img src="${facultyPhoto}" class="modal_photo rounded" alt="...">
                                 </div>
