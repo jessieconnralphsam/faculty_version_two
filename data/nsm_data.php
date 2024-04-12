@@ -201,10 +201,7 @@ if ($result) {
                                     <h3 class="maroon"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
                                     <h5  class="modaltext mt-3"><strong>${rankFullName}, ${department}, CNSM</strong></h5 >
                                     <hr>
-                                    <p>(Dr.) [LastName] attained [Degree] in [Field] from [University]. Their extensive scholarly contributions are accessible through their Google Scholar profile [Provide Google Scholar Link]. Specializing in [Specializations], (Dr.) [LastName] enriches the academic community with a wealth of expertise. Their research interests in [Research Interests] have led to notable contributions, employing innovative methodologies and insightful analyses.</p>
-                                    <p class="footer-text mb-0 mt-4">Mindanao State University - General Santos</p>
-                                    <p class="footer-text mt-0 mb-0">College of Natural Science and Mathematics</p>
-                                    <p class="footer-text mt-0 mb-0">2024</p>
+                                    
                                 </div>
                             </div>
                         </div>

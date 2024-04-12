@@ -229,11 +229,18 @@ h6 {
 .modaltext{
   color: #23262F;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 18.75px;
   text-align: left;
 
+}
+
+.modalspan{
+  color: #23262F;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
 }
 
 .gold{
@@ -256,6 +263,19 @@ h6 {
 .container-sample{
   height: 50px;
 }
+
+.modal_photo{
+  width: 200px;
+  height: auto;
+}
+
+.maroontext{
+  font-family: "Roboto", sans-serif;
+  color: #8F0A03;
+  font-size: 15px;
+}
+
+
 
 /*--------------------------------------------------------------
 # Header

@@ -127,7 +127,7 @@ if ($result) {
 ?>
 <!-- Modal -->
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
                 <div class="position-relative mb-5">
@@ -186,6 +186,14 @@ if ($result) {
                     "INST3": "Instructor"
                 };
                 const rankFullName = rankMap[rankAbbreviation] || rankAbbreviation;
+
+                const departmentMap ={
+                    "Department of Civil Engineering" : "CE",
+                    "Department of Mechanical Engineering" : "ME",
+                    "Electronics & Com. Engineering/Electrical Engineering " : "ECE/EE",
+                    "Engineering Technology": "ET"
+                };
+                const departmentNewName = departmentMap[department] || department;
                 
                 const modalFacultyDetails = document.getElementById('facultyDetails');
                 modalFacultyDetails.innerHTML = `
@@ -193,18 +201,18 @@ if ($result) {
                         <div class="row">
                             <div class="col">
                                 <div class="container-fluid">
-                                    <img src="${facultyPhoto}" class="rounded img-fluid" alt="...">
+                                    <img src="${facultyPhoto}" class="modal_photo rounded" alt="...">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="container w-auto p-3">
-                                    <h3 class="maroon"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
-                                    <h5  class="modaltext mt-3"><strong>${rankFullName}, ${department}, COE</strong></h5 >
+                                    <h3 class="maroontext"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
+                                    <h5  class="modaltext mt-0"><strong>${rankFullName}, ${departmentNewName}, COE</strong></h5 >
                                     <hr>
-                                    <p>(Dr.) [LastName] attained [Degree] in [Field] from [University]. Their extensive scholarly contributions are accessible through their Google Scholar profile [Provide Google Scholar Link]. Specializing in [Specializations], (Dr.) [LastName] enriches the academic community with a wealth of expertise. Their research interests in [Research Interests] have led to notable contributions, employing innovative methodologies and insightful analyses.</p>
-                                    <p class="footer-text mb-0 mt-4">Mindanao State University - General Santos</p>
-                                    <p class="footer-text mt-0 mb-0">College of Engineering</p>
-                                    <p class="footer-text mt-0 mb-0">2024</p>
+                                    <h5  class="modaltext mt-0"><strong>Highest Educational Attainment:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Google Scholar Link:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Specializations:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Research Interests:</strong><span class="modalspan"></span></h5>
                                 </div>
                             </div>
                         </div>
