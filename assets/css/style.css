@@ -238,7 +238,7 @@ h6 {
 
 .modalspan{
   color: #23262F;
-  font-size: 12px;
+  font-size: 15px;
   font-family: "Roboto", sans-serif;
   font-weight: 200;
 }
@@ -272,11 +272,26 @@ h6 {
 .maroontext{
   font-family: "Roboto", sans-serif;
   color: #8F0A03;
-  font-size: 15px;
+  font-size: 16px;
 }
 
+.profile{
+  color: #23262F;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
 
-
+.container-custom{
+  width: 240px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.custom-column{
+  padding-left: 0px;
+  padding-right: 0px;
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
