@@ -127,11 +127,15 @@ if ($result) {
 ?>
 <!-- Modal -->
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="position-relative mb-5">
-                    <button type="button" class="btn-close position-absolute end-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="position-relative mb-3">
+                    <div class="row">
+                        <div class="col-7"></div>
+                        <div class="col"><i class="fa fa-user"></i> <span class="profile">View Full Profile</span></div>
+                        <div class="col-1"><button type="button" class="btn-close position-absolute end-0" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                     </div>
                 </div>  
                 <p id="facultyDetails"></p>
             </div>
@@ -186,25 +190,30 @@ if ($result) {
                     "INST3": "Instructor"
                 };
                 const rankFullName = rankMap[rankAbbreviation] || rankAbbreviation;
+
+                const departmentMap ={
+                    "Doctor of Medicine" : "Medicine"
+                };
+                const departmentNewName = departmentMap[department] || department;
                 
                 const modalFacultyDetails = document.getElementById('facultyDetails');
                 modalFacultyDetails.innerHTML = `
                     <div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col custom-column">
                                 <div class="container-fluid">
-                                    <img src="${facultyPhoto}" class="rounded img-fluid" alt="...">
+                                    <img src="${facultyPhoto}" class="modal_photo rounded" alt="...">
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="container w-auto p-3">
-                                    <h3 class="maroon"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
-                                    <h5  class="modaltext mt-3"><strong>${rankFullName}, ${department}, COM</strong></h5 >
+                            <div class="col custom-column">
+                                <div class="container-custom">
+                                    <h3 class="maroontext"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
+                                    <h5  class="modaltext mt-0"><strong>${rankFullName}, ${departmentNewName}, COM</strong></h5 >
                                     <hr>
-                                    <p>(Dr.) [LastName] attained [Degree] in [Field] from [University]. Their extensive scholarly contributions are accessible through their Google Scholar profile [Provide Google Scholar Link]. Specializing in [Specializations], (Dr.) [LastName] enriches the academic community with a wealth of expertise. Their research interests in [Research Interests] have led to notable contributions, employing innovative methodologies and insightful analyses.</p>
-                                    <p class="footer-text mb-0 mt-4">Mindanao State University - General Santos</p>
-                                    <p class="footer-text mt-0 mb-0">College of Medicine</p>
-                                    <p class="footer-text mt-0 mb-0">2024</p>
+                                    <h5  class="modaltext mt-0"><strong>Highest Educational Attainment:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Google Scholar Link:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Specializations:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Research Interests:</strong><span class="modalspan"></span></h5>
                                 </div>
                             </div>
                         </div>
