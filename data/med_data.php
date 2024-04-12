@@ -140,14 +140,18 @@ if ($result) {
 </div>
 
 <script>
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         const containers = document.querySelectorAll('.custom-container');
         containers.forEach(container => {
             container.addEventListener('click', function () {
                 const education = container.querySelector('#education').innerText; 
-                const first_name = container.querySelector('#first_name').innerText; 
-                const middle_name = container.querySelector('#middle_name').innerText;
-                const last_name = container.querySelector('#last_name').innerText; 
+                const first_name = capitalizeFirstLetter(container.querySelector('#first_name').innerText); 
+                const middle_name = capitalizeFirstLetter(container.querySelector('#middle_name').innerText);
+                const last_name = capitalizeFirstLetter(container.querySelector('#last_name').innerText); 
                 const suffix = container.querySelector('#suffix').innerText; 
                 const research = container.querySelector('#research').innerText; 
                 const google = container.querySelector('#google').innerText; 
@@ -194,12 +198,13 @@ if ($result) {
                             </div>
                             <div class="col">
                                 <div class="container w-auto p-3">
-                                    <h3 class="text-center maroon"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
-                                    <h6 class="text-center"><strong>${rankFullName}, ${department}, COM</strong></h6>
-                                    <h6 class=""><strong>Highest Educational Attainment:</strong></h6>
-                                    <h6 class=""><strong>Google Scholar Link:</strong></h6>
-                                    <h6 class=""><strong>Specializations:</strong></h6>
-                                    <h6 class=""><strong>Research Interests:</strong></h6>
+                                    <h3 class="maroon"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
+                                    <h5  class="modaltext mt-3"><strong>${rankFullName}, ${department}, COM</strong></h5 >
+                                    <hr>
+                                    <p>(Dr.) [LastName] attained [Degree] in [Field] from [University]. Their extensive scholarly contributions are accessible through their Google Scholar profile [Provide Google Scholar Link]. Specializing in [Specializations], (Dr.) [LastName] enriches the academic community with a wealth of expertise. Their research interests in [Research Interests] have led to notable contributions, employing innovative methodologies and insightful analyses.</p>
+                                    <p class="footer-text mb-0 mt-4">Mindanao State University - General Santos</p>
+                                    <p class="footer-text mt-0 mb-0">College of Medicine</p>
+                                    <p class="footer-text mt-0 mb-0">2024</p>
                                 </div>
                             </div>
                         </div>
