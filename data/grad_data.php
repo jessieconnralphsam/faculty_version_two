@@ -109,6 +109,7 @@ if ($result) {
                             </div>
                             <h6 class="text-center"><strong>' . $last_name . ',' . $first_name . ' ' .$suffix . ' ' . $middle_name . '</strong></h6>
                             <h6 class="text-center"><strong>' . $transformedRank . '</strong></h6>
+                            <h6 id="first_name" style="display: none" class="text-center"><strong>' .  $facultyName . '</strong></h6>
                         </div>
                     </div>';
             }
@@ -127,12 +128,9 @@ if ($result) {
 ?>
 <!-- Modal -->
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="position-relative mb-5">
-                    <button type="button" class="btn-close position-absolute end-0" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>  
+            <div class="modal-body"> 
                 <p id="facultyDetails"></p>
             </div>
         </div>
@@ -141,7 +139,11 @@ if ($result) {
 
 <script>
     function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        var words = string.split(' ');
+        var capitalizedWords = words.map(function(word) {
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        });
+        return capitalizedWords.join(' ');
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -186,25 +188,42 @@ if ($result) {
                     "INST3": "Instructor"
                 };
                 const rankFullName = rankMap[rankAbbreviation] || rankAbbreviation;
+
+                const departmentMap ={
+                    // conversion here
+                };
+                const departmentNewName = departmentMap[department] || department;
                 
                 const modalFacultyDetails = document.getElementById('facultyDetails');
                 modalFacultyDetails.innerHTML = `
+                    <div class="position-relative mb-3">
+                        <div class="row">
+                            <div class="col col-5 col-md-7"></div>
+                            <div class="col col-6 col-md-4">
+                                <i class="fa fa-user"></i>
+                                <a href="#" onclick="location.href='profile.php?name=${facultyName}'">
+                                    <span class="profile">View Full Profile</span>
+                                </a>
+                            </div>
+                            <div class="col col-1 col-md-1"><button type="button" class="btn-close position-absolute end-0" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                        </div>
+                    </div>
                     <div>
                         <div class="row">
-                            <div class="col">
-                                <div class="container-fluid">
-                                    <img src="${facultyPhoto}" class="rounded img-fluid" alt="...">
+                            <div class="col col-8 col-md-6 custom-column">
+                                <div class="container-fluid mb-2">
+                                    <img src="${facultyPhoto}" class="modal_photo rounded" alt="...">
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="container w-auto p-3">
-                                    <h3 class="maroon"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
-                                    <h5  class="modaltext mt-3"><strong>${rankFullName}, ${department}, SGS</strong></h5 >
+                            <div class="col custom-column">
+                                <div class="container-custom">
+                                    <h3 class="maroontext"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
+                                    <h5  class="modaltext mt-0"><strong>${rankFullName}, ${departmentNewName}, SGS</strong></h5 >
                                     <hr>
-                                    <p>(Dr.) [LastName] attained [Degree] in [Field] from [University]. Their extensive scholarly contributions are accessible through their Google Scholar profile [Provide Google Scholar Link]. Specializing in [Specializations], (Dr.) [LastName] enriches the academic community with a wealth of expertise. Their research interests in [Research Interests] have led to notable contributions, employing innovative methodologies and insightful analyses.</p>
-                                    <p class="footer-text mb-0 mt-4">Mindanao State University - General Santos</p>
-                                    <p class="footer-text mt-0 mb-0">School of Graduate Studies</p>
-                                    <p class="footer-text mt-0 mb-0">2024</p>
+                                    <h5  class="modaltext mt-0"><strong>Highest Educational Attainment:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Google Scholar Link:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Specializations:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Research Interests:</strong><span class="modalspan"></span></h5>
                                 </div>
                             </div>
                         </div>
