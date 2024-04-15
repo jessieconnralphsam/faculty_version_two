@@ -353,3 +353,27 @@ h6 {
   }
 
 }
+
+/* faculty_profile */
+.profile-image {
+  height: 286px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-text{
+  font-family: "Roboto", sans-serif;
+  color: #8F0A03;
+}
+
+.profile-container{
+  width: 240px;
+  height: 39px;
+  top: 758px;
+  left: 572px;
+  gap: 0px;
+  border-radius: 18px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+}

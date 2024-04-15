@@ -1,44 +1,69 @@
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <div class="px-3 py-3">
-              <strong>All Colleges / College of Natural Sciences and Mathematics (CNSM)</strong>
+              <strong><a href="index.php">All Colleges</a> / [College] ([Abbreviation])</strong>
               <div class="py-4">
                 <div class="row row-cols-auto">
                     <div class="col col-12 col-md-4 mt-2">
-                        <div class="container bg-white rounded shadow border">
+                        <div class="container bg-white rounded shadow">
                             <div>
-                                <div class="col">
-                                    <img src="<?php echo $photoSrc; ?> " class="rounded img-fluid mt-2" alt="...">
+                                <div class="col" style="display: flex;justify-content: center;">
+                                    <img src="<?php echo $photoSrc; ?> " class="rounded profile-image align-middle mt-2 mb-2" alt="...">
                                 </div>
                                 <div class="col">
-                                <h5 class="text-center border">
-                                    <?php 
-                                    echo "Faculty Name: $facultyName <br>";
-                                    echo "Email: $email <br>";
-                                    echo "Rank: $transformedRank <br>";
-                                    echo "First Name: $first_name <br>";
-                                    echo "Middle Name: $middle_name <br>";
-                                    echo "Last Name: $last_name <br>";
-                                    echo "Suffix: $suffix <br>";
-                                    echo "Google Scholar Link: $google <br>";
-                                    echo "Research: $research <br>";
-                                    echo "Specialization: $specialization <br>";
-                                    echo "Education: $education <br>";
-                                    echo "Photo Source: $photoSrc <br>";
-                                    ?>
-                                </h5>
+                                    <p class="fw-bolder fs-sm text-center"><strong>Contact Information</strong></p>
+                                    <p class="fw-lighter fs-sm text-center mb-3"><i class="fa fa-envelope"></i> <?php echo $email; ?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col col-12 col-md-8 mt-2">
                         <div class="container">
-                            <div class="text-center mb-2 border">test</div>
-                            <div class="text-center border">test</div>
+                            <div class="mb-2">
+                                <h2 class="profile-text" style="color: #8F0A03;"><strong><?php echo $first_name; ?> <?php echo $middle_name; ?> <?php echo $last_name; ?> <?php echo $suffix; ?></strong></h2>
+                                <h3 class="fw-lighter mt-0"><?php echo $transformedRank; ?>, [department], [C(abb)]</h3>
+                                <p class="fw-lighter fs-sm mt-2">[Dr.] [Name] is an [Rank] and currently the chairperson in the [Department]. She publishes research about lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum quam lorem, sed scelerisque massa venenatis id. Nulla congue elementum augue, quis gravida massa fermentum quis.</p>
+                                <h3 class="fw-bold mt-3">Specialization</h3>
+                                <div class="row">
+                                    <div class="col col-md-5 mt-2 mb-2">
+                                        <div class="profile-container rounded border">
+                                            <p class="fw-lighter fs-sm py-2 mx-0 px-0 text-center">[Specialization]</p>
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-5 mt-2 mb-2">
+                                        <div class="profile-container rounded border">
+                                            <p class="fw-lighter fs-sm py-2 mx-0 px-0 text-center">[Specialization]</p>
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-5 mt-2 mb-2">
+                                        <div class="profile-container rounded border">
+                                            <p class="fw-lighter fs-sm py-2 mx-0 px-0 text-center">[Specialization]</p>
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-5 mt-2 mb-2">
+                                        <div class="profile-container rounded border">
+                                            <p class="fw-lighter fs-sm py-2 mx-0 px-0 text-center">[Specialization]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="container bg-white rounded shadow mt-2 border">
-                            <div class="text-center mb-2 border">test</div>
-                            <div class="text-center border">test</div>
+                        <div class="container bg-white rounded shadow mt-5 border">
+                            <div class="container">
+                                <div class="d-flex align-items-center">
+                                    <h3 class="fw-bold mt-3 me-3">Education</h3>
+                                    <div class="flex-grow-1 d-flex justify-content-end">
+                                    <i class="fa fa-caret-down" style="font-size:36px"></i>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="d-flex align-items-center">
+                                    <h3 class="fw-bold mt-3 me-3">Research Interest</h3>
+                                    <div class="flex-grow-1 d-flex justify-content-end">
+                                    <i class="fa fa-caret-down" style="font-size:36px"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
