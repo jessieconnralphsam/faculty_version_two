@@ -85,7 +85,11 @@ if ($result) {
                 $education = $facultyRow['education'];
                 $photoSrc = ($facultyRow['photo'] == null) ? 'assets/img/660f6e5997de4_def.jpg' : 'forms/' . $facultyRow['photo'];
                 $transformedRank = isset($rankMap[$rank]) ? $rankMap[$rank] : $rank;
-                $facultyId = 'faculty_' . uniqid();
+                $uniqueId = '';
+                for ($i = 0; $i < 5; $i++) {
+                    $uniqueId .= uniqid();
+                }
+                $facultyId = $uniqueId;
 
                 echo '
                     <div class="col py-2">
@@ -109,6 +113,7 @@ if ($result) {
                             </div>
                             <h6 class="text-center"><strong>' . $last_name . ',' . $first_name . ' ' .$suffix . ' ' . $middle_name . '</strong></h6>
                             <h6 class="text-center"><strong>' . $transformedRank . '</strong></h6>
+                            <h6 id="first_name" style="display: none" class="text-center"><strong>' .  $facultyName . '</strong></h6>
                         </div>
                     </div>';
             }
@@ -129,14 +134,7 @@ if ($result) {
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="position-relative mb-3">
-                    <div class="row">
-                        <div class="col col-5 col-md-7"></div>
-                        <div class="col col-6 col-md-4"><i class="fa fa-user"></i> <span class="profile">View Full Profile</span></div>
-                        <div class="col col-1 col-md-1"><button type="button" class="btn-close position-absolute end-0" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                     </div>
-                </div>  
+            <div class="modal-body">  
                 <p id="facultyDetails"></p>
             </div>
         </div>
@@ -204,6 +202,18 @@ if ($result) {
                 
                 const modalFacultyDetails = document.getElementById('facultyDetails');
                 modalFacultyDetails.innerHTML = `
+                    <div class="position-relative mb-3">
+                        <div class="row">
+                            <div class="col col-5 col-md-7"></div>
+                            <div class="col col-6 col-md-4">
+                                <i class="fa fa-user"></i>
+                                <a href="#" onclick="location.href='profile.php?name=${facultyName}'">
+                                    <span class="profile">View Full Profile</span>
+                                </a>
+                            </div>
+                            <div class="col col-1 col-md-1"><button type="button" class="btn-close position-absolute end-0" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                        </div>
+                    </div>
                     <div>
                         <div class="row">
                             <div class="col col-8 col-md-6 custom-column">
@@ -214,12 +224,12 @@ if ($result) {
                             <div class="col custom-column">
                                 <div class="container-custom">
                                     <h3 class="maroontext"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
-                                    <h5  class="modaltext mt-0"><strong>${rankFullName}, ${departmentNewName}, COA</strong></h5 >
+                                    <h5  class="modaltext-two mt-0">${rankFullName}, ${departmentNewName}, COA</h5 >
                                     <hr>
                                     <h5  class="modaltext mt-0"><strong>Highest Educational Attainment:</strong><span class="modalspan"></span></h5>
-                                    <h5  class="modaltext mt-0"><strong>Google Scholar Link:</strong><span class="modalspan"></span></h5>
                                     <h5  class="modaltext mt-0"><strong>Specializations:</strong><span class="modalspan"></span></h5>
                                     <h5  class="modaltext mt-0"><strong>Research Interests:</strong><span class="modalspan"></span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Google Scholar Link:</strong><span class="modalspan"></span></h5>
                                 </div>
                             </div>
                         </div>

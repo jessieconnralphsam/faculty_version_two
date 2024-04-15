@@ -236,6 +236,15 @@ h6 {
 
 }
 
+.modaltext-two{
+  color: #23262F;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 18.75px;
+  text-align: left;
+
+}
+
 .modalspan{
   color: #23262F;
   font-size: 15px;
