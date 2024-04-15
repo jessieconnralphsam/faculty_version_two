@@ -8,7 +8,7 @@
                         <div class="container bg-white rounded shadow border">
                             <div>
                                 <div class="col">
-                                    <img src="' . $photoSrc . '" class="rounded img-fluid" alt="...">
+                                    <img src="<?php echo $photoSrc; ?> " class="rounded img-fluid mt-2" alt="...">
                                 </div>
                                 <div class="col">
                                 <h5 class="text-center border">
