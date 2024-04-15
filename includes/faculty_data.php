@@ -12,7 +12,8 @@ $facultySql = "SELECT
                     F.first_name,
                     F.last_name,
                     F.middle_name,
-                    F.suffix
+                    F.suffix,
+                    F.email
                 FROM
                     public.faculty F
                 JOIN
@@ -49,6 +50,7 @@ while ($row = pg_fetch_assoc($result)) {
         "INST3  " => "Instructor"
     );
     $facultyName = $row['faculty_name'];
+    $email = $row['email'];
     $rank = $row['rank'];
     $first_name = $row['first_name'];
     $middle_name = $row['middle_name'];

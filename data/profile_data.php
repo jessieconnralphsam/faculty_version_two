@@ -8,12 +8,13 @@
                         <div class="container bg-white rounded shadow border">
                             <div>
                                 <div class="col">
-                                    <h1 class="text-center border">Picture</h1>
+                                    <img src="' . $photoSrc . '" class="rounded img-fluid" alt="...">
                                 </div>
                                 <div class="col">
                                 <h5 class="text-center border">
                                     <?php 
                                     echo "Faculty Name: $facultyName <br>";
+                                    echo "Email: $email <br>";
                                     echo "Rank: $transformedRank <br>";
                                     echo "First Name: $first_name <br>";
                                     echo "Middle Name: $middle_name <br>";
