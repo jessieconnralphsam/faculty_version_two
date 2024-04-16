@@ -15,7 +15,9 @@
   </div>
   <div class="container">
       <?php include('includes/search.php'); ?>
-      <?php include('includes/chart.php'); ?>
+      <div class="container">
+        <?php include('includes/chart.php'); ?>
+      </div>
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <div class="px-3 py-3">
@@ -44,5 +46,6 @@
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/page.js"></script>
+  <script src="assets/js/chart.js"></script>
 </body>
 </html>
