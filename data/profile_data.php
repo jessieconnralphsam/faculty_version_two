@@ -22,7 +22,7 @@
                             <div class="mb-2">
                                 <h2 class="profile-text" style="color: #8F0A03;"><strong><?php echo $first_name; ?> <?php echo $middle_name; ?> <?php echo $last_name; ?> <?php echo $suffix; ?></strong></h2>
                                 <h3 class="fw-lighter mt-0"><?php echo $transformedRank; ?>, [department], [C(abb)]</h3>
-                                <p class="fw-lighter fs-sm mt-2">[Dr.] [Name] is an [Rank] and currently the chairperson in the [Department]. She publishes research about lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum quam lorem, sed scelerisque massa venenatis id. Nulla congue elementum augue, quis gravida massa fermentum quis.</p>
+                                <p class="fw-lighter fs-sm mt-2">[Dr.] [Name] is an [Rank] and currently the [chairperson] in the [Department]. She publishes research about lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum quam lorem, sed scelerisque massa venenatis id. Nulla congue elementum augue, quis gravida massa fermentum quis.</p>
                                 <h3 class="fw-bold mt-3">Specialization</h3>
                                 <div class="row">
                                     <div class="col col-md-5 mt-2 mb-2">

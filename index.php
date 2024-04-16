@@ -19,15 +19,23 @@
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <div class="px-3 py-3">
-              <strong>All Colleges (<?php echo $num_rows; ?>)</strong>
-              <div class="py-4">
-                <div class="row">
-                    <?php include('data/index_data.php'); ?>
+              <div id="data-row">
+                <strong id="colleges-text">All Colleges (<?php echo $num_rows; ?>)</strong>
+                <div class="py-4">
+                  <div class="row">
+                      <?php include('data/index_data.php'); ?>
+                  </div>
                 </div>
               </div>
-            </div>
+              <div>
+              </div>
+                <div class="row" id="result-row" style="display:none">
+                  <?php include('includes/search-result.php'); ?>
+                </div>
+              </div>
         </div>
       </div>
+      
   </div>
   <div style="margin-bottom: 2rem;"></div>
   <?php include('includes/footer.php'); ?>
