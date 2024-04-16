@@ -158,7 +158,7 @@ if ($result) {
                 const department = container.querySelector('#department').innerText;
                 const facultyName = container.querySelector('h6:last-of-type').innerText;
                 const facultyPhoto = container.querySelector('img').getAttribute('src');
-                
+                const NewSpecializations = formatSpecializations(specialization);
                 const rankMap = {
                     "LECT": "Lecturer",
                     "PROF1": "Professor",
@@ -219,7 +219,7 @@ if ($result) {
                                     <h5  class="modaltext-two mt-0">${rankFullName}, ${departmentNewName}, COA</h5 >
                                     <hr>
                                     <h5  class="modaltext mt-0"><strong>Highest Educational Attainment:</strong><span class="modalspan"></span></h5>
-                                    <h5  class="modaltext mt-0"><strong>Specializations:</strong><span class="modalspan">${specialization}</span></h5>
+                                    <h5  class="modaltext mt-0"><strong>Specializations:</strong><span class="modalspan"> ${NewSpecializations}</span></h5>
                                     <h5  class="modaltext mt-0"><strong>Research Interests:</strong><span class="modalspan"></span></h5>
                                     <h5  class="modaltext mt-0"><strong>Google Scholar Link:</strong><span class="modalspan"></span></h5>
                                 </div>
