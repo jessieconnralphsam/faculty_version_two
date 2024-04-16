@@ -367,13 +367,9 @@ h6 {
   color: #8F0A03;
 }
 
-.profile-container{
-  width: 240px;
-  height: 39px;
-  top: 758px;
-  left: 572px;
-  gap: 0px;
-  border-radius: 18px 0px 0px 0px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
+.profile-container {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
 }

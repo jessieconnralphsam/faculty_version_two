@@ -1,7 +1,7 @@
       <div class="container  py-2 px-2">
         <div class="container rounded bg-white">
             <div class="px-3 py-3">
-              <strong><a href="index.php">All Colleges</a> / [College] ([Abbreviation])</strong>
+              <strong><a href="index.php">All Colleges</a> / <?php echo $college; ?> (<?php echo $college_abbreviation; ?>)</strong>
               <div class="py-4">
                 <div class="row row-cols-auto">
                     <div class="col col-12 col-md-4 mt-2">
@@ -21,31 +21,21 @@
                         <div class="container">
                             <div class="mb-2">
                                 <h2 class="profile-text" style="color: #8F0A03;"><strong><?php echo $first_name; ?> <?php echo $middle_name; ?> <?php echo $last_name; ?> <?php echo $suffix; ?></strong></h2>
-                                <h3 class="fw-lighter mt-0"><?php echo $transformedRank; ?>, [department], [C(abb)]</h3>
-                                <p class="fw-lighter fs-sm mt-2">[Dr.] [Name] is an [Rank] and currently the [chairperson] in the [Department]. She publishes research about lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum quam lorem, sed scelerisque massa venenatis id. Nulla congue elementum augue, quis gravida massa fermentum quis.</p>
-                                <h3 class="fw-bold mt-3">Specialization</h3>
-                                <div class="row">
-                                    <div class="col col-md-5 mt-2 mb-2">
-                                        <div class="profile-container rounded border">
-                                            <p class="fw-lighter fs-sm py-2 mx-0 px-0 text-center">[Specialization]</p>
-                                        </div>
-                                    </div>
-                                    <div class="col col-md-5 mt-2 mb-2">
-                                        <div class="profile-container rounded border">
-                                            <p class="fw-lighter fs-sm py-2 mx-0 px-0 text-center">[Specialization]</p>
-                                        </div>
-                                    </div>
-                                    <div class="col col-md-5 mt-2 mb-2">
-                                        <div class="profile-container rounded border">
-                                            <p class="fw-lighter fs-sm py-2 mx-0 px-0 text-center">[Specialization]</p>
-                                        </div>
-                                    </div>
-                                    <div class="col col-md-5 mt-2 mb-2">
-                                        <div class="profile-container rounded border">
-                                            <p class="fw-lighter fs-sm py-2 mx-0 px-0 text-center">[Specialization]</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h3 class="fw-lighter mt-0"><?php echo $transformedRank; ?>, <?php echo $department; ?>, <?php echo $college_abbreviation; ?></h3>
+                                <p class="fw-lighter fs-sm mt-2">[Dr.] [Name] is an [Rank] and currently the [chairperson] in the [Department]. [She] publishes research about lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum quam lorem, sed scelerisque massa venenatis id. Nulla congue elementum augue, quis gravida massa fermentum quis.</p>
+                                <h3 class="fw-bold mt-4">Specialization</h3>
+                                <?php
+                                $specializations_array = explode("; ", $specialization);
+                                echo '<div class="row">';
+                                foreach ($specializations_array as $spec) {
+                                    echo '<div class="col col-md-5 mt-2 mb-2">';
+                                    echo '<div class="profile-container rounded border">';
+                                    echo '<p class="fw-lighter fs-sm py-2 mx-0 px-0 text-center">' . $spec . '</p>';
+                                    echo '</div>';
+                                    echo '</div>';
+                                }
+                                echo '</div>';
+                                ?>
                             </div>
                         </div>
                         <div class="container bg-white rounded shadow mt-5 border">
@@ -59,6 +49,20 @@
                                 <hr>
                                 <div class="d-flex align-items-center">
                                     <h3 class="fw-bold mt-3 me-3">Research Interest</h3>
+                                    <div class="flex-grow-1 d-flex justify-content-end">
+                                    <i class="fa fa-caret-down" style="font-size:36px"></i>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="d-flex align-items-center">
+                                    <h3 class="fw-bold mt-3 me-3">Publications</h3>
+                                    <div class="flex-grow-1 d-flex justify-content-end">
+                                    <i class="fa fa-caret-down" style="font-size:36px"></i>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="d-flex align-items-center">
+                                    <h3 class="fw-bold mt-3 me-3">Affiliations</h3>
                                     <div class="flex-grow-1 d-flex justify-content-end">
                                     <i class="fa fa-caret-down" style="font-size:36px"></i>
                                     </div>

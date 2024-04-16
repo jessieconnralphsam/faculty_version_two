@@ -13,7 +13,9 @@ $facultySql = "SELECT
                     F.last_name,
                     F.middle_name,
                     F.suffix,
-                    F.email
+                    F.email,
+                    F.collegeid,
+                    D.department_name
                 FROM
                     public.faculty F
                 JOIN
@@ -49,7 +51,51 @@ while ($row = pg_fetch_assoc($result)) {
         "INST2  " => "Instructor",
         "INST3  " => "Instructor"
     );
+    switch ($row['collegeid']) {
+        case 1:
+            $college = 'College of Engineering';
+            $college_abbreviation = 'COE';
+            break;
+        case 2:
+            $college = 'College of Agriculture';
+            $college_abbreviation = 'COA';
+            break;
+        case 3:
+            $college = 'College of Social Sciences and Humanities';
+            $college_abbreviation = 'CSSH';
+            break;
+        case 4:
+            $college = 'College of Medicine';
+            $college_abbreviation = 'COM';
+            break;
+        case 5:
+            $college = 'College of Business Administration and Accountancy';
+            $college_abbreviation = 'CB&A';
+            break;
+        case 6:
+            $college = 'College of Fisheries';
+            $college_abbreviation = 'COF';
+            break;
+        case 7:
+            $college = 'College of Natural Science and Mathematics';
+            $college_abbreviation = 'CNSM';
+            break;
+        case 8:
+            $college = 'School of Graduate Studies';
+            $college_abbreviation = 'SGS';
+            break;
+        case 9:
+            $college = 'College of Education';
+            $college_abbreviation = 'CoED';
+            break;
+        default:
+            $college = 'Unknown College';
+            $college_abbreviation = 'UNK';
+    }
+
+    
     $facultyName = $row['faculty_name'];
+    $department = $row['department_name'];
     $email = $row['email'];
     $rank = $row['rank'];
     $first_name = $row['first_name'];
