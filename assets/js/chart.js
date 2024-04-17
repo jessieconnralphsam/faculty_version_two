@@ -1,3 +1,4 @@
+
 (function () {
     'use strict';
 
@@ -131,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var options = {
         series: [{
         name: 'Total',
-        data: [profRanks, asoproRanks, astproRanks, instRanks,6],
+        data: [lectRanks, instRanks, astproRanks, asoproRanks, profRanks],
         color: '#16DBCC',
       }],
         chart: {

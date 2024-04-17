@@ -1,5 +1,6 @@
 <?php include('connection/db_connection.php'); ?>
 <?php include('data/dean_count.php'); ?>
+<?php include('includes/faculty_count.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php include('includes/header.php'); ?>
@@ -51,7 +52,15 @@
     var profRanks = <?php echo json_encode($profRanks); ?>;
     var astproRanks = <?php echo json_encode($astproRanks); ?>;
     var asoproRanks = <?php echo json_encode($asoproRanks); ?>;
-    var instRanks = <?php echo json_encode($instRanks); ?>; 
+    var instRanks = <?php echo json_encode($instRanks); ?>;
+    var lectRanks = <?php echo json_encode($lectRanks); ?>;
+
+    console.log("profRanks:", profRanks);
+    console.log("astproRanks:", astproRanks);
+    console.log("asoproRanks:", asoproRanks);
+    console.log("instRanks:", instRanks);
+    console.log("lectRanks:", lectRanks);
   </script>
+
 </body>
 </html>
