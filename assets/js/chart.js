@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var options = {
         series: [{
         name: 'Total',
-        data: [2.3, 3.1, 4]
+        data: [permanent, casual, joborder]
       }],
         chart: {
         height: 300,

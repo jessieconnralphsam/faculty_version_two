@@ -66,7 +66,6 @@ if ($result) {
                           <hr style="width: 100%; border: 1px solid;">
                       </div>
                   </div>
-                  <h6 class="text-center"><strong>' . $row['faculty_name'] . '</strong></h6>
                   <h6 class="text-center"><strong>' . $row['last_name'] . ',' . $row['first_name'] . ' ' . $row['suffix'] . ' ' . $row['middle_name'] . '</strong></h6>
                   <h6 class="text-center">' . $deanText . '</h6>
                 </div>

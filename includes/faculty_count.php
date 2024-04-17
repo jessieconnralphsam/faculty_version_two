@@ -11,7 +11,7 @@ if (!$result) {
     exit;
 }
 
-$lectRanks = $profRanks = $astproRanks = $asoproRanks = $instRanks = 0;
+$joborder = $casual = $permanent = $lectRanks = $profRanks = $astproRanks = $asoproRanks = $instRanks = 0;
 
 while ($row = pg_fetch_assoc($result)) {
     if (strpos($row['rank'], 'PROF') === 0) {
@@ -29,6 +29,14 @@ while ($row = pg_fetch_assoc($result)) {
     if (strpos($row['rank'], 'LECT') === 0) {
         $lectRanks++; 
     }
+    if (strpos($row['status'], 'permanent') === 0) {
+        $permanent++;
+    } elseif (strpos($row['status'], 'casual') === 0) {
+        $casual++;
+    } else {
+        $joborder++;
+    }
+    
 }
 
 

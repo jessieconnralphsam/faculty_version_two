@@ -54,12 +54,10 @@
     var asoproRanks = <?php echo json_encode($asoproRanks); ?>;
     var instRanks = <?php echo json_encode($instRanks); ?>;
     var lectRanks = <?php echo json_encode($lectRanks); ?>;
+    var permanent = <?php echo json_encode($permanent); ?>;
+    var joborder = <?php echo json_encode($joborder); ?>;
+    var casual = <?php echo json_encode($casual); ?>;
 
-    console.log("profRanks:", profRanks);
-    console.log("astproRanks:", astproRanks);
-    console.log("asoproRanks:", asoproRanks);
-    console.log("instRanks:", instRanks);
-    console.log("lectRanks:", lectRanks);
   </script>
 
 </body>
