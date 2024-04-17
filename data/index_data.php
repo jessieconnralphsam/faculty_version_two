@@ -7,7 +7,8 @@ $sql = "SELECT
     F.first_name,
     F.last_name,
     F.middle_name,
-    F.suffix
+    F.suffix,
+    F.rank
 FROM
     Faculty F
 JOIN
@@ -15,7 +16,13 @@ JOIN
 WHERE
     F.dean = 't'";
 $result = pg_query($conn, $sql);
-
+//--------------------------------------------
+//count
+$profRanks = 0;
+$astproRanks = 0;
+$asoproRanks = 0;
+$instRanks = 0;
+//-------------------------------------------
 if ($result) {
     while ($row = pg_fetch_assoc($result)) {
         if ($row['photo'] == null) {
@@ -55,7 +62,18 @@ if ($result) {
             default:
                 $deanText = 'No Match';
         }
-
+        if (strpos($row['rank'], 'PROF') === 0) {
+            $profRanks++; 
+        }
+        if (strpos($row['rank'], 'ASTPRO') === 0) {
+            $astproRanks++; 
+        }
+        if (strpos($row['rank'], 'ASOPRO') === 0) {
+            $asoproRanks++; 
+        }
+        if (strpos($row['rank'], 'INST') === 0) {
+            $instRanks++; 
+        }
         echo '<div class="col py-2">
                 <div class="container py-2 bg-white rounded custom-container border" onclick="redirect(\'' . $row['college_name'] . '\')">
                   <img src="' . $photoSrc . '" class="rounded img-fluid" alt="...">

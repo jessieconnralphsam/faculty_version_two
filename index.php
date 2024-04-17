@@ -47,5 +47,11 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/page.js"></script>
   <script src="assets/js/chart.js"></script>
+  <script>
+    var profRanks = <?php echo json_encode($profRanks); ?>;
+    var astproRanks = <?php echo json_encode($astproRanks); ?>;
+    var asoproRanks = <?php echo json_encode($asoproRanks); ?>;
+    var instRanks = <?php echo json_encode($instRanks); ?>; 
+  </script>
 </body>
 </html>

@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var options = {
         series: [{
         name: 'Total',
-        data: [9, 10, 11, 15,6],
+        data: [profRanks, asoproRanks, astproRanks, instRanks,6],
         color: '#16DBCC',
       }],
         chart: {
