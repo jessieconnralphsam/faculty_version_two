@@ -25,11 +25,11 @@
             series: [
                 {
                     name: 'Total Number of Faculty',
-                    data: [4, 8, 10]
+                    data: [4, 8, 10, 5, 7]
                 }
             ],
             chart: {
-                height: 200,
+                height: 300,
                 width: 500,
                 stacked: true,
                 type: 'bar',
@@ -49,7 +49,7 @@
                 enabled: true,
                 offsetX: 6,
                 style: {
-                  fontSize: '12px',
+                  fontSize: '10px',
                   fontWeight: '700',
                   colors: ['#fff'],
                   fontFamily: 'roboto'
@@ -82,7 +82,7 @@
                 }
             },
             xaxis: {
-                categories: ['Permanent', 'Casual', 'Lecturer'],
+                categories: ["Lecturer", "Instructor", "Assistant Professor", "Associate Professor", "Professor"],
                 labels: {
                     style: {
                         fontSize: '13px',
@@ -131,12 +131,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var options = {
         series: [{
         name: 'Total',
-        data: [9, 10, 11, 15],
+        data: [9, 10, 11, 15,6],
         color: '#16DBCC',
       }],
         chart: {
         type: 'bar',
-        height: 200,
+        height: 300,
         width: 500,
         toolbar: {
             show: true,
@@ -166,10 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
         intersect: false
       },
       xaxis: {
-        categories: ['Professor',
-                     'Associate Professor',
-                     'Assistant Professor', 
-                     'Instructor'
+        categories: ["Lecturer", "Instructor", "Assistant Professor", "Associate Professor", "Professor"
         ],
       }
       };
@@ -178,6 +175,96 @@ document.addEventListener('DOMContentLoaded', function () {
       chart.render();
     
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var options = {
+        series: [{
+        name: 'Total',
+        data: [2.3, 3.1, 4]
+      }],
+        chart: {
+        height: 300,
+        width: 500,
+        type: 'bar',
+        toolbar: { show: false }
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 10,
+          dataLabels: {
+            position: 'top', // top, center, bottom
+          },
+        }
+      },
+      dataLabels: {
+        enabled: true,
+        formatter: function (val) {
+          return val + "";
+        },
+        offsetY: -20,
+        style: {
+          fontSize: '12px',
+          colors: ["#304758"]
+        }
+      },
+      
+      xaxis: {
+        categories: ["Permanent", "Casual", "Job Order"],
+        position: 'bottom',
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        crosshairs: {
+          fill: {
+            type: 'gradient',
+            gradient: {
+              colorFrom: '#D8E3F0',
+              colorTo: '#BED1E6',
+              stops: [0, 100],
+              opacityFrom: 0.4,
+              opacityTo: 0.5,
+            }
+          }
+        },
+        tooltip: {
+          enabled: true,
+        }
+      },
+      yaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false,
+        },
+        labels: {
+          show: false,
+          formatter: function (val) {
+            return val + "";
+          }
+        }
+      
+      },
+      title: {
+        text: '',
+        floating: true,
+        offsetY: 330,
+        align: 'center',
+        style: {
+          color: '#444'
+        }
+      }
+      };
+    
+      var chart = new ApexCharts(document.querySelector("#chart-sample"), options);
+      chart.render();    
+    
+});
+
 
 const checkbox = document.getElementById('show-status-checkbox');
 const statusContainer = document.getElementById('status-container');
