@@ -25,6 +25,7 @@ $query = "
     F.dean,
     F.photo,
     F.status,
+    F.education,
     F.first_name,
     F.middle_name,
     F.last_name,
@@ -57,12 +58,14 @@ while ($row = pg_fetch_assoc($result)) {
         'dean' => $row['dean'],
         'photo' => $row['photo'],
         'status' => $row['status'],
+        'education' => $row['education'],
         'first_name' => $row['first_name'],
         'middle_name' => $row['middle_name'],
         'last_name' => $row['last_name'],
         'suffix' => $row['suffix']
     );
     $facultyData[] = $faculty;
+    
 }
 pg_close($conn);
 ?>
@@ -72,7 +75,7 @@ pg_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Information</title>
+    <title>TEMPORARY DATA LOAD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         table {
@@ -87,7 +90,6 @@ pg_close($conn);
         th {
             background-color: #f2f2f2;
         }
-        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -109,7 +111,12 @@ pg_close($conn);
     </style>
 </head>
 <body>
-    <button class="btn btn-success mt-2 mb-2">Import</button>
+    <a href="photo.php" style="text-decoration: none;">
+        <button class="btn btn-md btn-primary mt-4">
+            Add photo
+        </button>
+    </a>
+    <hr>
     <table>
         <thead>
             <tr>
@@ -125,6 +132,7 @@ pg_close($conn);
                 <th>Specialization</th>
                 <th>Research</th>
                 <th>Google Scholar</th>
+                <th>Education</th>
                 <th>Rank</th>
                 <th>Dean</th>
                 <th>Action</th>
@@ -145,6 +153,7 @@ pg_close($conn);
                     <td><?php echo $faculty['specialization']; ?></td>
                     <td><?php echo $faculty['research']; ?></td>
                     <td><?php echo $faculty['google_scholar_link']; ?></td>
+                    <td><?php echo $faculty['education']; ?></td>
                     <td><?php echo $faculty['rank']; ?></td>
                     <td><?php echo $faculty['dean']; ?></td>
                     <td>
@@ -160,7 +169,6 @@ pg_close($conn);
                             '<?php echo $faculty['last_name']; ?>',
                             '<?php echo $faculty['suffix']; ?>')">Edit
                         </button>
-                        <button class="btn btn-sm btn-success" onclick="addLoad_Modal()">load</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -173,9 +181,12 @@ pg_close($conn);
             <div>
                 <button  style="width:50px; float: right;" class="close btn btn-sm btn-danger" onclick="closeModal()">Close</button>
             </div>
-            <div id="nameDisplay"></div>
+            <strong>Basic Information</strong>
+            <div class="mt-3 mb-3" id="nameDisplay"></div>
             <form id="editForm" action="update.php" method="post">
+                
                 <input type="hidden" id="facultyName" name="faculty_name">
+                <hr>
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name:</label>
                     <input type="text" id="firstName" name="first_name" class="form-control">
@@ -212,21 +223,11 @@ pg_close($conn);
                     <label for="googleScholar" class="form-label">Google Scholar:</label>
                     <input type="text" id="googleScholar" name="google_scholar_link" class="form-control">
                 </div>
-                
-                <!-- End of new input fields -->
-                <button type="submit" class="btn btn-primary">Save Changes</button>
-            </form>
-        </div>
-    </div>
-    <!-- load modal -->
-    <div id="loadModal" class="modal">
-        <div class="modal-content">
-            <div>
-                <button  style="width:50px; float: right;" class="close btn btn-sm btn-danger" onclick="closeLoad_Modal()">Close</button>
-            </div>
-            <h1 class="text-center">Additional Load</h1>
-	    <p class="text-center">form for additional load here</p>
-            <form id="loadForm" action="#" method="post">
+                <div class="mb-3">
+                    <label for="education" class="form-label">Education:</label>
+                    <input type="text" id="education" name="education" class="form-control">
+                </div>
+                <hr>
                 <button type="submit" class="btn btn-primary">Save Changes</button>
             </form>
         </div>
@@ -252,12 +253,6 @@ pg_close($conn);
 
         function closeModal() {
             document.getElementById('editModal').style.display = 'none';
-        }
-        function addLoad_Modal(){
-            document.getElementById('loadModal').style.display = 'block';
-        }
-        function closeLoad_Modal(){
-            document.getElementById('loadModal').style.display = 'none';
         }
     </script>
 </body>

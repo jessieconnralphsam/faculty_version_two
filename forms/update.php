@@ -13,19 +13,15 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if all required fields are present
     if (!isset($_POST['faculty_name'])) {
         die("Missing required parameter: faculty_name");
     }
 
-    // Retrieve POST data
     $facultyName = $_POST['faculty_name'];
 
-    // Prepare SQL statement
     $updateQuery = "UPDATE Faculty SET ";
     $params = array();
 
-    // Check and add parameters for each field
     if (isset($_POST['status'])) {
         $updateQuery .= "status=$1, ";
         $params[] = $_POST['status'];
@@ -46,32 +42,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $updateQuery .= "google_scholar_link=$5, ";
         $params[] = $_POST['google_scholar_link'];
     }
-    // Adding parameters for first name, middle name, last name, and suffix
+    if (isset($_POST['education'])) {
+        $updateQuery .= "education=$6, ";
+        $params[] = $_POST['education'];
+    }
     if (isset($_POST['first_name'])) {
-        $updateQuery .= "first_name=$6, ";
+        $updateQuery .= "first_name=$7, ";
         $params[] = $_POST['first_name'];
     }
     if (isset($_POST['middle_name'])) {
-        $updateQuery .= "middle_name=$7, ";
+        $updateQuery .= "middle_name=$8, ";
         $params[] = $_POST['middle_name'];
     }
     if (isset($_POST['last_name'])) {
-        $updateQuery .= "last_name=$8, ";
+        $updateQuery .= "last_name=$9, ";
         $params[] = $_POST['last_name'];
     }
     if (isset($_POST['suffix'])) {
-        $updateQuery .= "suffix=$9, ";
+        $updateQuery .= "suffix=$10, ";
         $params[] = $_POST['suffix'];
     }
 
-    // Remove the trailing comma and space
     $updateQuery = rtrim($updateQuery, ", ");
 
-    // Add WHERE clause
     $updateQuery .= " WHERE name=$" . (count($params) + 1);
     $params[] = $facultyName;
 
-    // Execute the query
     $result = pg_query_params($conn, $updateQuery, $params);
 
     if ($result) {
