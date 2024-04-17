@@ -83,7 +83,7 @@
                 }
             },
             xaxis: {
-                categories: ["Lecturer", "Instructor", "Assistant Professor", "Associate Professor", "Professor"],
+                categories: ["Professor", "Associate Professor", "Assistant Professor", "Instructor", "Lecturer"],
                 labels: {
                     style: {
                         fontSize: '13px',
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var options = {
         series: [{
         name: 'Total',
-        data: [lectRanks, instRanks, astproRanks, asoproRanks, profRanks],
+        data: [profRanks, asoproRanks, astproRanks, instRanks, lectRanks],
         color: '#16DBCC',
       }],
         chart: {
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
         intersect: false
       },
       xaxis: {
-        categories: ["Lecturer", "Instructor", "Assistant Professor", "Associate Professor", "Professor"
+        categories: ["Professor", "Associate Professor", "Assistant Professor", "Instructor", "Lecturer"
         ],
       }
       };
