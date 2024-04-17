@@ -216,7 +216,7 @@ if ($result) {
                             <div class="col custom-column">
                                 <div class="container-custom">
                                     <h3 class="maroontext"><strong>${first_name} ${middle_name} ${last_name} ${suffix}</strong></h3>
-                                    <h5  class="modaltext-two mt-0">${rankFullName}, ${departmentNewName}, COA</h5 >
+                                    <h5  class="mt-0"><span class="modaltext-two">${rankFullName}</span><span class="fw-lighter modaltext-two">, ${departmentNewName}, COA</span></h5>
                                     <hr>
                                     <h5  class="modaltext mt-0"><strong>Highest Educational Attainment:</strong><span class="modalspan"></span></h5>
                                     <h5  class="modaltext mt-0"><strong>Specializations:</strong><span class="modalspan"> ${NewSpecializations}</span></h5>
