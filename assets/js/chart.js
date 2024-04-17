@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
       
       },
       title: {
-        text: '',
+        text: 'Total Number of Faculty: ',
         floating: true,
         offsetY: 330,
         align: 'center',
