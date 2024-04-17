@@ -11,7 +11,7 @@
                 <div class="col text-center">
                     <div class="row mt-2">
                         <div class="col">
-                            <strong>Show Status</strong>
+                            <strong>Show Status Statistic</strong>
                         </div>
                         <div class="col-2">
                             <input class="form-check-input" type="checkbox" value="" aria-label="" id="show-status-checkbox">
@@ -21,7 +21,7 @@
                 <div class="col text-center">
                     <div class="row mt-2">
                         <div class="col">
-                            <strong>Show Rank</strong>
+                            <strong>Show Rank Statistic</strong>
                         </div>
                         <div class="col col-2">
                             <input class="form-check-input" type="checkbox" value="" aria-label="" id="show-rank-checkbox">
