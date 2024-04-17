@@ -21,7 +21,7 @@
                         <div class="container">
                             <div class="mb-2">
                                 <h2 class="profile-text" style="color: #8F0A03;"><strong><?php echo $first_name; ?> <?php echo $middle_name; ?> <?php echo $last_name; ?> <?php echo $suffix; ?></strong></h2>
-                                <h3 class="fw-lighter mt-0"><?php echo $transformedRank; ?>, <?php echo $department; ?>, <?php echo $college_abbreviation; ?></h3>
+                                <h3 class="mt-0"><span class="fst-normal"><?php echo $transformedRank; ?></span><span class="fw-lighter">, <?php echo $department; ?>, <?php echo $college_abbreviation; ?></span></h3>
                                 <p class="fw-lighter fs-sm mt-2">[Dr.] [Name] is an [Rank] and currently the [chairperson] in the [Department]. [She] publishes research about lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum quam lorem, sed scelerisque massa venenatis id. Nulla congue elementum augue, quis gravida massa fermentum quis.</p>
                                 <h3 class="fw-bold mt-4">Specialization</h3>
                                 <?php
