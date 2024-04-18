@@ -216,9 +216,7 @@ if ($result) {
                                     <h5  class="mt-0"><span class="modaltext-two">${rankFullName}</span><span class="fw-lighter modaltext-two">, ${departmentNewName}, COE</span></h5>
                                     <hr>
                                     <h5  class="modaltext mt-0"><strong>Highest Educational Attainment:</strong><span class="modalspan"></span></h5>
-                                    <h5  class="modaltext mt-0"><strong>Google Scholar Link:</strong><span class="modalspan"></span></h5>
                                     <h5  class="modaltext mt-0"><strong>Specializations:</strong><span class="modalspan"> ${NewSpecializations}</span></h5>
-                                    <h5  class="modaltext mt-0"><strong>Research Interests:</strong><span class="modalspan"></span></h5>
                                 </div>
                             </div>
                         </div>
