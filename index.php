@@ -57,7 +57,6 @@
     var permanent = <?php echo json_encode($permanent); ?>;
     var joborder = <?php echo json_encode($joborder); ?>;
     var casual = <?php echo json_encode($casual); ?>;
-
   </script>
 
 </body>

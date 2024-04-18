@@ -1,7 +1,5 @@
 <?php
 
-
-
 $query = "SELECT * FROM public.faculty";
 
 $result = pg_query($conn, $query);
